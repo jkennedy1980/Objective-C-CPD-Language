@@ -12,6 +12,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <packaging>jar</packaging>
   </properties>
 
   <build>
@@ -25,8 +26,21 @@
           <target>1.6</target>
         </configuration>
       </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>2.3.1</version>
+        <configuration>
+            <archive>
+                <manifest>
+                    <addClasspath>false</addClasspath>
+                </manifest>
+            </archive>
+        </configuration>
+      </plugin>
   	</plugins>
   </build>
+  
   <dependencies>
     <dependency>
     	<groupId>pmd</groupId>
@@ -41,4 +55,5 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+  
 </project>
