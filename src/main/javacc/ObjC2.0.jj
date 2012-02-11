@@ -510,6 +510,7 @@ TOKEN :
  |
    <AT_OPTIONAL: "@optional">
  | <AT_REQUIRED: "@required">
+ | <AT_AUTORELEASEPOOL: "@autoreleasepool">
 }
 
 TOKEN :
