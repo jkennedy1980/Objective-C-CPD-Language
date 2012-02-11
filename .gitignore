@@ -1,0 +1,14 @@
+# Maven output
+target/
+
+# Vim temporary files
+.*.sw[a-z]
+*.un~
+Session.vim
+
+# OSX Stuff
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
