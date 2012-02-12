@@ -511,6 +511,8 @@ TOKEN :
    <AT_OPTIONAL: "@optional">
  | <AT_REQUIRED: "@required">
  | <AT_AUTORELEASEPOOL: "@autoreleasepool">
+ | <AT_COMPATIBILITY_ALIAS: "@compatibility_alias">
+ 
 }
 
 TOKEN :
@@ -533,7 +535,7 @@ TOKEN :
 {
    < IDENT : <IDENT_NONDIGIT> ( <IDENT_NONDIGIT> | <DIGIT>)* >
 | <#IDENT_NONDIGIT : <NONDIGIT> | <UNIVERSAL_CHARACTER_NAME> > // "may include other implementation-defined characters"
-| <#NONDIGIT : ["a"-"z"] | ["A"-"Z"] | "_" >
+| <#NONDIGIT : ["a"-"z"] | ["A"-"Z"] | "_" | "$" >
 | <#UNIVERSAL_CHARACTER_NAME : ("\\u" <HEX_QUAD>) | ("\\U" <HEX_QUAD> <HEX_QUAD>) >
 }
 
