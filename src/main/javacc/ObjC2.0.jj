@@ -19,6 +19,7 @@ import java.util.*;
  * @author Michael Hall - Based on Parnel SableCC ObjectiveC grammar and javacc C grammar
  *
  * Josh Kennedy - added CSTRING_LITERAL so parser doesn't die on CStrings.
+ * Paul Taykalo - added support for 0x literals, @compatibility_alias, and the $ character identifier
  */
  
 public class ObjCParser 
