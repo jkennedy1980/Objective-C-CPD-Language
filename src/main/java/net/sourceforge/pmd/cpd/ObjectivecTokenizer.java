@@ -20,7 +20,9 @@ public class ObjectivecTokenizer implements Tokenizer{
 
 	@Override
 	public void tokenize( SourceCode sourceCode, Tokens tokenEntries ) throws IOException {
+		
 		StringBuffer buffer = sourceCode.getCodeBuffer();
+		
 		try {
 			
 			ObjCParser parser = new ObjCParser( new StringReader( buffer.toString() ) );
@@ -32,14 +34,14 @@ public class ObjectivecTokenizer implements Tokenizer{
 		    }
 		    
 		    tokenEntries.add( TokenEntry.getEOF() );
-		    //System.out.println( "Added " + sourceCode.getFileName() );
+		    System.out.println( "CPD Processing: " + sourceCode.getFileName() );
 		    
 		}catch( TokenMgrError err) {
 			
+			tokenEntries.add( TokenEntry.getEOF() );
+			System.out.println( "CPD Error - Skipping " + sourceCode.getFileName() + " due to parse errors: " + err.getLocalizedMessage() );
 		    err.printStackTrace();
-		    //System.out.println( "Skipping " + sourceCode.getFileName() + " due to parse error" );
-		    tokenEntries.add( TokenEntry.getEOF() );
-		    
+
 		}
 	}
 

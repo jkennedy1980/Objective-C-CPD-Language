@@ -12,3 +12,6 @@ Session.vim
 .Spotlight-V100
 .Trashes
 
+# Eclipse Stuff
+.project
+.classpath
