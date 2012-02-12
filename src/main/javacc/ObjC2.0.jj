@@ -20,6 +20,7 @@ import java.util.*;
  *
  * Josh Kennedy - added CSTRING_LITERAL so parser doesn't die on CStrings.
  * Paul Taykalo - added support for 0x literals, @compatibility_alias, and the $ character identifier
+ * Paul Taykalo - vertical tab (\v) and alert (\a) characters are added
  */
  
 public class ObjCParser 
