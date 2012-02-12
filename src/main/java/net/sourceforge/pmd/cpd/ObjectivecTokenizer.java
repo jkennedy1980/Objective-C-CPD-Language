@@ -14,8 +14,13 @@ import com.deadmeta4.cpd.generated.TokenMgrError;
 
 public class ObjectivecTokenizer implements Tokenizer{
 	
+	private boolean loggingEnabled;
+	
 	public ObjectivecTokenizer(){
 		super();
+		
+		String loggingEnabledValue = System.getProperty( "ObjC-CPD-LoggingEnabled", "NO" );
+		this.loggingEnabled = "YES".equalsIgnoreCase( loggingEnabledValue );
 	}
 
 	@Override
@@ -24,7 +29,6 @@ public class ObjectivecTokenizer implements Tokenizer{
 		StringBuffer buffer = sourceCode.getCodeBuffer();
 		
 		try {
-			
 			ObjCParser parser = new ObjCParser( new StringReader( buffer.toString() ) );
 
 		    Token currentToken = parser.getNextToken();
@@ -34,14 +38,15 @@ public class ObjectivecTokenizer implements Tokenizer{
 		    }
 		    
 		    tokenEntries.add( TokenEntry.getEOF() );
-		    System.out.println( "CPD Processing: " + sourceCode.getFileName() );
+		    if( this.loggingEnabled ) System.out.println( "CPD Processing: " + sourceCode.getFileName() );
 		    
 		}catch( TokenMgrError err) {
 			
 			tokenEntries.add( TokenEntry.getEOF() );
-			System.out.println( "CPD Error - Skipping " + sourceCode.getFileName() + " due to parse errors: " + err.getLocalizedMessage() );
-		    err.printStackTrace();
-
+			 if( this.loggingEnabled ){
+				 System.out.println( "CPD Error - Skipping " + sourceCode.getFileName() + " due to parse errors: " + err.getLocalizedMessage() );
+				 err.printStackTrace();
+			 }
 		}
 	}
 
