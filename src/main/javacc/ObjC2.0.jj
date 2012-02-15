@@ -176,6 +176,7 @@ SKIP : {
 |  "\n"
 |  "\r"
 |  "\f"
+|  "\\\n"    /* Special issue for long strings concatenation */
 |  "__weak"
 |  "__strong"
 |  "__attribute__"
